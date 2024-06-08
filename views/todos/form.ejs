@@ -1,0 +1,43 @@
+<%- include('../partials/header') %>
+    <div class="card mt-5">
+        <div class="card-header p-4">
+            <h1 class="text-center">Adding Data</h1>
+        </div>
+        <form action="" autocomplete="off" method="post">
+            <div class="m-3 row">
+                <label for="name" class="col-sm-2 col-form-label">Title</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="title" name="title" value="<%= data.title %>"
+                        placeholder="Insert your title" required>
+                </div>
+            </div>
+
+            <% if (typeof url != 'object' && url.includes("edit")) { %>
+            <div class="m-3 row">
+                <label for="deadline" class="col-sm-2 col-form-label">Deadline</label>
+                <div class="col-sm-10">
+                    <input type="datetime-local" class="form-control" id="deadline" name="deadline"
+                        value="<%= data.reformat %>">
+                </div>
+            </div>
+            <div class="m-3 row">
+                <label for="complete" class="col-sm-2 col-form-label">Complete</label>
+                <div class="col-sm-10">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="true" id="complete" name="complete" <%=data.complete == true ? "checked" : ""%>>
+                        <label class="form-check-label" for="complete">Done</label>
+                    </div>
+                </div>
+            </div>
+            <% }%>
+            <div class="card-footer">
+                <div class="col-sm-5">
+                    <button type="submit" class="btn btn-primary"><i class="fa-solid fa-floppy-disk"></i></button>
+                    <a href="/todos" class="btn btn-warning"><i class="fa-solid fa-arrow-rotate-left"></i></a>
+                </div>
+            </div>
+
+        </form>
+    </div>
+
+    <%- include('../partials/footer') %>
