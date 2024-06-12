@@ -124,7 +124,7 @@ function uploadAvatar(req, res) {
       if (err) return console.log("Tolong hubungi administrator!", err);
 
       User.upload(fileName, userid, () => {
-        res.redirect("/todos/avatar");
+        res.redirect("/todos");
       });
     });
   }
